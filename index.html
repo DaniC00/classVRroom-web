@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<!-- TODO 
+    https://scrum.ieti.cat/scrum/projecte/16#sprint-72 -->
+
+<head>
+    <script src="scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div id="box">
+    <h1>User</h1>
+    <input id="username" type="text" name="username" placeholder="username"/>
+    <input id="password" type="password" name="password" placeholder="*******"/>
+
+    <button class="regular-button" id="btnLogin" onclick="loginButtonAction()">Log-in</button>
+</div>
+
+<!-- Listener para pulsar el boton de login al darle al enter.. -->
+<script>
+    var input = document.getElementById("password");
+    input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("btnLogin").click();
+        }
+    });
+</script>
+
+</body>
+</html>

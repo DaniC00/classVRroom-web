@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- IMPORTS DE COSAS...-->
+    <script src="scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div id="main-container">
+        
+         <!-- BARRA DE ARRIBA CON LOGOUT...-->
+        <div id="topbar">
+            <a id="dashboard-title" href="mainmenu.html" ><h1>Dashboard</h1></a>
+            <button class="regular-button" id="btnLogOut" onclick="logoutButtonAction()">Log-out</button>
+        </div>
+
+        <div class="submenu-container">
+            <div class="topbar-submenu" style="margin: auto; margin-top: 64px;">
+                <h1 style="margin: auto; font-size: 24px;">GET COURSES AND DETAILS</h1>
+            </div>
+
+            <div class="submenu-content" style="display : flex"> 
+                <div style="min-height: 128px; width: 33%;">
+                    <button class="regular-button" id="" onclick="getCoursesAction()" style="justify-content: center; width: 80%;">getCourses</button>  
+                </div>
+                <div id="course-list-container" style="min-height: 128px; width: 67%;">
+                    <!--<input style="pointer-events: none; width: 80%; justify-content: center; margin-top: 16px; height: 20px" type="text" value="hola"/> -->
+                </div>
+            </div>
+
+
+            <div style="min-height: 128px;">
+                <textarea readonly id="details-textarea" style="resize: vertical;"  id="w3review" name="w3review" rows="10" cols="90">
+                </textarea>
+            </div>
+
+        </div>
+
+        <div class="submenu-container">
+            <div class="topbar-submenu" style="margin: auto; margin-top: 64px;">
+                <h1 style="margin: auto; font-size: 24px;">EXPORT DATABASE</h1>
+            </div>
+
+            <div class="submenu-content" style="margin: auto; margin-top: 16px; width: 66%; min-height: 128px;"> 
+                <input id="exportDBusername" type="text" name="username" placeholder="username"/>
+                <input id="exportDBpassword" type="password" name="password" placeholder="*******"/>
+            
+                <button class="regular-button" onclick="downloadExportDB()">Download DB</button>
+            </div>
+        </div>
+
+        <div class="submenu-container">
+            <div class="topbar-submenu" style="margin: auto; margin-top: 64px;">
+                <h1 style="margin: auto; font-size: 24px;">PIN REQUEST</h1>
+            </div>
+
+            <div class="submenu-content" style="margin: auto; margin-top: 16px; width: 90%; min-height: 128px;"> 
+                <input readonly id="generatedPinInput" type="text" placeholder="PIN" style="text-align: center; border: #2c81b9 2px solid; font-weight: bold;"/>
+
+                <input id="vrTaskIdInput" type="number" placeholder="vr task ID (Ejemplo: 5)" style="width: 40%; text-align: center;"/>
+                <button class="regular-button" style="width: 38%" onclick="pinRequest()">REQUEST PIN</button>
+            </div>
+            
+        </div>
+
+        <div class="submenu-container">
+            <div class="topbar-submenu" style="margin: auto; margin-top: 64px;">
+                <h1 style="margin: auto; font-size: 24px;">START VR EXERCISE</h1>
+            </div>
+
+            <div class="submenu-content" style="margin: auto; margin-top: 16px; width: 90%; min-height: 128px;"> 
+                <input readonly id="startExerciseResult" type="text" placeholder="Result" style="text-align: center; border: #2c81b9 2px solid; font-weight: bold;"/>
+
+                <input id="startExercisePinInput" type="number" max="9999"  placeholder="PIN (Ejemplo: 1234)" style="text-align: center; width: 40%;"/>
+                <button class="regular-button" style="width: 38%" onclick="startVrExercise()">Start Exercise</button>
+            </div>
+
+        </div>
+
+        <div class="submenu-container">
+            <div class="topbar-submenu" style="margin: auto; margin-top: 64px;">
+                <h1 style="margin: auto; font-size: 24px;">FINISH VR EXERCISE</h1>
+            </div>
+
+            <div class="submenu-content" style="margin-top: 16px; width: 90%; min-height: 128px;"> 
+                <div class="block">
+                    <label for="finnishPinInput">PIN</label>
+                    <input id="finnishPinInput" type="number" max="9999"  placeholder="(Ejemplo: 1234)" style="text-align: center; width: 50%;"/>
+                </div>
+                <div class="block">
+                    <label for="finnishFailedInput">FAILED ITEMS</label>
+                    <input id="finnishFailedInput" type="number" max=""  placeholder="(Ejemplo: 2)" style="text-align: center; width: 50%;"/>
+                </div>
+                <div class="block">
+                    <label for="finnishPassedInput">PASSED ITEMS</label>
+                    <input id="finnishPassedInput" type="number" max="9999"  placeholder="(Ejemplo: 8)" style="text-align: center; width: 50%;"/>
+                </div>
+                <div class="block">
+                    <label for="finnishGradeInput">GRADE</label>
+                    <input id="finnishGradeInput" type="number" max="9999"  placeholder="(Ejemplo: 7)" style="text-align: center; width: 50%;"/>
+                </div>
+                <div class="block">
+                    <label for="FinnishFeedbackInput">FEEDBACK</label>
+                    <input id="FinnishFeedbackInput" type="text"  placeholder="(Ejemplo: 'tobillo izquierdo adelantado')" style="text-align: center; width: 50%;"/>
+                </div>
+            </div>
+
+            <div class="submenu-content" style="margin: auto; width: 90%; min-height: 128px;"> 
+                <button class="regular-button" style="width: 70%" onclick="finishVRExercise()">FINISH EXERCISE</button>
+            </div>
+
+        </div>
+
+        <!-- solo para dar una linea azul al final..-->
+        <div id="topbar">
+        </div>
+
+    </div>
+
+    <script>
+        console.log(localStorage.getItem('token'));
+    </script>
+
+</body>
+
+</html>
